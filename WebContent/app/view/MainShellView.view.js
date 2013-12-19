@@ -21,7 +21,6 @@ sap.ui.jsview("app.view.MainShellView", {
 		var result = null;
 		if(this._appShell){
 			result = this._appShell;
-			//some comment 
 		}
 		return result;
 	},
