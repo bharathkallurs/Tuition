@@ -7,8 +7,10 @@
         src='resources/sap-ui-core.js'  
         data-sap-ui-theme='sap_bluecrystal'  
         data-sap-ui-libs='sap.ui.commons,sap.ui.ux3'></script>   
+    <!-- load the style sheet -->
+    <link rel="stylesheet" type="text/css" href="resources-project/css/app.css">
   
-<script>  
+    <script>  
      // register the location of javascript files
      sap.ui.localResources("app");
      // specify the file in which the app's main class is defined
@@ -16,9 +18,9 @@
      // launch the app by instantiating its main class
      jQuery.sap.require("Application");
      var app = new Application({
-     root: "content"
-});
-</script>
+         root: "content"
+     });
+    </script>
 
 </head>
 <body class='sapUiBody'>
