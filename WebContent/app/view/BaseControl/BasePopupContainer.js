@@ -16,8 +16,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
         
         aggregations: {
         	"contentView": "sap.ui.core.mvc.View",
-        	"leftTitlebarItems": "sap.ui.commons.ToolbarItem",
-        	"rightTitlebarItems": "sap.ui.commons.ToolbarItem",
         	"leftToolbarItems": "sap.ui.commons.ToolbarItem",
         	"rightToolbarItems": "sap.ui.commons.ToolbarItem"
         },
@@ -159,7 +157,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
      */
     createContent: function() {
     	var defaultLayout = new sap.ui.commons.layout.VerticalLayout();
-    	defaultLayout.addStyleClass("sapRMContent");
     	return defaultLayout;
     },
     
@@ -169,7 +166,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
      */
     createCenter: function() {
     	var defaultLayout = new sap.ui.commons.layout.BorderLayout();
-    	defaultLayout.addStyleClass("sapRMCenter");
     	return defaultLayout;
     },
     
