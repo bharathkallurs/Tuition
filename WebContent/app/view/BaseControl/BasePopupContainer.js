@@ -63,10 +63,7 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     	
     	this._title = this.createTitlebar();
     	this._toolbar = this.createToolbar();
-    	
-    	//The container's layout
-    	this._borderLayout = new sap.ui.commons.layout.BorderLayout();
-    	this.addContent(this._borderLayout);    	
+    	this.addContent(this._toolbar);    	
     },
     
     
@@ -175,10 +172,12 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     
     /**
      * Create the container's bottom bar
-     * @returns {sap.ui.commons.Toolbar}
+     * @returns {sap.ui.commons.layout.VerticalLayout}
      */
     createToolbar: function() {
-    	
+    	this.sidetoolBar= new sap.ui.commons.layout.VerticalLayout();
+    	this.sidetoolBar.addStyleClass("tutSideToolBar");
+    	return this.sidetoolBar;
     }
     
 });

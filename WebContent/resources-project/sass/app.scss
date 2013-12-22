@@ -1,3 +1,18 @@
-.TutMain{
-margin: 10px;
+
+//--------------------------------
+// Colors used in the application
+//--------------------------------
+$tut-color-black: #000000;
+
+//-------------------------------------------------------------
+//Side bar for overlay container
+//-------------------------------------------------------------
+
+.tutSideToolBar{
+   position:relative;
+   top:0px;
+   left:0px;
+   width:50px;
+   height:100%;
+   background: $tut-color-black;
 }
