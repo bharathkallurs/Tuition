@@ -7,6 +7,7 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
 	/*getControllerName : function() {
 		return "app.controller.ExternalCandidate";
 	},*/
+	
 
 	/**
 	 * Get the current overlay container for this view
@@ -24,9 +25,31 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
 		
 		this._viewContentLayout = new sap.ui.commons.layout.VerticalLayout();
 		this._viewContentLayout.setWidth("100%");
-	
+		this._videoHtmlPlayer = new sap.ui.core.HTML({
+			 content:"<embed style='position:absolute;top:0px;width:100%;float:right'"+
+			 " height='500'"+
+				 "src='http://www.youtube.com/v/XGSy3_Czz8k'"+
+				 "type='application/x-shockwave-flash'>"+
+				 "</embed>",
+         preferDOM : false,                      
+            afterRendering : function(e) {
+                  //some work to be done after rendering 
+            }
+        });
+		this._viewContentLayout.addContent(this._videoHtmlPlayer);
 		
-		return this._viewContentLayout;
+		this._commentsSection= new sap.ui.commons.Panel();
+		this._commentsSection.setTitle(new sap.ui.core.Title({text: "Comments"}));
+		this._commentsSection.addStyleClass("tutCommentsSection");
+		
+		this._commentsBox = new sap.ui.commons.TextArea();
+		this._commentsBox.setRows(3);
+		this._commentsSection.addContent(this._commentsBox);
+
+		
+		this._viewContentLayout.addContent(this._commentsSection);
+		
+	    return this._viewContentLayout;
 	},
 
 });

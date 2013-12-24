@@ -16,8 +16,7 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
         
         aggregations: {
         	"contentView": "sap.ui.core.mvc.View",
-        	"leftToolbarItems": "sap.ui.commons.ToolbarItem",
-        	"rightToolbarItems": "sap.ui.commons.ToolbarItem"
+        	"toolbarItems": "sap.ui.commons.ToolbarItem",
         },
         
         events: {
@@ -51,17 +50,41 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     	
     	//Creating the middle area
     	this._content = this.createContent();
-
-    	//Creating the middle area
-    	this._center = this.createCenter();
-    	this._content = this.createContent();
-    	this._center.createArea(sap.ui.commons.layout.BorderLayoutAreaTypes.center,this._content);
-    	this._center.setAreaData(sap.ui.commons.layout.BorderLayoutAreaTypes.center,{size:"100%"});
+    	
+    	//Adding any content that was added before applySettings was called
+    	if(this._deferredContent) {
+    		for(var i=0; i < this._deferredContent.length; ++i) {
+    			this._content.addContent(this._deferredContent[i]);
+    		}
+    	}
+	    
+    	this._content.getContent().forEach(function(content){
+        	if(content.setOverlayContainer) {
+        		content.setOverlayContainer(me);	
+        	}
+        	
+        	//If the user didn't define this function we add it to the view
+        	if(!content.getOverlayContainer) {
+        		content.getOverlayContainer = function() {
+        			return me;
+        		};
+        	}
+    	});
+    	
     	
     	
     	this._title = this.createTitlebar();
     	this._toolbar = this.createToolbar();
+    	
+    	this._content.addStyleClass("tutPopupContent");
+    	
+    	this._horizontalLayout= new sap.ui.commons.layout.HorizontalLayout({
+    		content:[this._toolbar,this._content]
+    	});
+    	
+    	this.addContent(this._horizontalLayout);
     	this.addContent(this._toolbar);    	
+    	this.addContent(this._content);
     },
     
     
@@ -72,7 +95,7 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
      */
     addContentView: function(content) {
     	var me = this;
-    	
+    	this._toolbar = this.createToolbar();
     	if(this._content) {
         	this._content.addContent(content);    		
     	}
@@ -85,28 +108,12 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     		this._deferredContent.push(content);
     	}
     	
-    	//Setting the toolbar and titlebar items when provided by the content view itself
-    	if(content && content.getLeftTitlebarItems) {
-    		content.getLeftTitlebarItems().forEach(function(item){
-    			me.addLeftTitlebarItem(item);	
-    		});
-    	}
-
-    	if(content && content.getRightTitlebarItems) {
-    		content.getRightTitlebarItems().forEach(function(item){
-    			me.addRightTitlebarItem(item);	
-    		});
-    	}
+    	debugger;
+    	var items = content.getToolbarItems;
     	
-    	if(content && content.getLeftToolbarItems) {
-    		content.getLeftToolbarItems().forEach(function(item){
-    			me.addLeftToolbarItem(item);
-    		});
-    	}
-    	
-    	if(content && content.getRightToolbarItems) {
-    		content.getRightToolbarItems().forEach(function(item){
-    			me.addRightToolbarItem(item);
+    	if(content && content.getToolbarItems) {
+    		content.getToolbarItems().forEach(function(item){
+    			me._toolbar.addContent(item);
     		});
     	}
     	
@@ -119,25 +126,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     			this.fireSave();
     		},this);
     	}
-    },
-
-    /**
-     * Create a scrollbar for the scrollable area in the overlay container
-     */
-    createScrollBar: function() {
-    	var sb = new sap.ui.commons.layout.AbsoluteLayout({
-    		width: "5px",
-    		height: "100%"
-    	});
-    	
-    	this._scrollBar = new sap.ui.core.ScrollBar();
-    	this._scrollBar.setVertical(true);
-    	this._scrollBar.setSize("100%");
-    	this._scrollBar.setScrollPosition(0);
-    	this._scrollBar.setSteps(100);
-        this._scrollBar.placeAt(sb.getId());    		
-    	
-    	return sb;
     },
         
     /**
@@ -173,6 +161,12 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     createToolbar: function() {
     	this.sidetoolBar= new sap.ui.commons.layout.VerticalLayout();
     	this.sidetoolBar.addStyleClass("tutSideToolBar");
+    	this._likeIndicator = new sap.ui.commons.RatingIndicator({
+			maxValue: 1,
+			visualMode: sap.ui.commons.RatingIndicatorVisualMode.Continuous
+		});
+    	this._likeIndicator.addStyleClass("tutLikeIndicator");
+    	this.sidetoolBar.addContent(this._likeIndicator);
     	return this.sidetoolBar;
     }
     
