@@ -92,11 +92,12 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
      * @param sidebarItems {array}
      */
     addSideBarItems: function (items) {
-       for(var i=0;i<items.length;i++){
-    	   var item = items[i];
-    	   this._toolbar.addContent(item);
+       if(items){
+    	 for(var i=0;i<items.length;i++){
+    	      var item = items[i];
+    	      this._toolbar.addContent(item);
+         }
        }
-    	   
     },
     
         

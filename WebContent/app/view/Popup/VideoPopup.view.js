@@ -4,10 +4,6 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
 	* In the case that it is not implemented, or that "null" is returned, this View does not have a Controller.
 	* @memberOf app.view.Popup.VideoPopup
 	*/ 
-	/*getControllerName : function() {
-		return "app.controller.ExternalCandidate";
-	},*/
-	
 	
 	/*
 	 * get the Side tool bar items 

@@ -16,11 +16,11 @@ sap.ui.app.Application.extend("Application", {
 	},
 	
 	runPavantest: function(){
-		var videoview = sap.ui.view({viewName:"app.view.Popup.VideoPopup", type:sap.ui.core.mvc.ViewType.JS});
-		var sideBaritems= videoview.getSideBarItems();
+		var view = sap.ui.view({viewName:"app.view.Popup.SignUpPopup", type:sap.ui.core.mvc.ViewType.JS});
+		var sideBaritems= view.getSideBarItems();
 		jQuery.sap.require("app.view.BaseControl.BasePopupContainer");
 		var overlayContainer = new app.view.BaseControl.BasePopupContainer({
-    		contentView: videoview
+    		contentView: view
     	});
 		overlayContainer.addSideBarItems(sideBaritems);
 		overlayContainer.open();	
