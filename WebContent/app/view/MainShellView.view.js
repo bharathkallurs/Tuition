@@ -2,6 +2,7 @@
  * MainShellView Class
  * 
  */
+ /*trying a simple edit feature from the web -bharath */
 jQuery.sap.require("sap.ui.ux3.Shell");
 
 sap.ui.jsview("app.view.MainShellView", {
