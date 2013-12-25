@@ -15,8 +15,7 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
         },
         
         aggregations: {
-        	"contentView": "sap.ui.core.mvc.View",
-        	"toolbarItems": "sap.ui.commons.ToolbarItem",
+        	"contentView": "sap.ui.core.mvc.View"
         },
         
         events: {
@@ -88,6 +87,18 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     },
     
     
+    /*
+     * add the side bar contents passed as parameters 
+     * @param sidebarItems {array}
+     */
+    addSideBarItems: function (items) {
+       for(var i=0;i<items.length;i++){
+    	   var item = items[i];
+    	   this._toolbar.addContent(item);
+       }
+    	   
+    },
+    
         
     /**
      * Add a SAPUI5 view to the overlay container's layout
@@ -108,24 +119,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     		this._deferredContent.push(content);
     	}
     	
-    	debugger;
-    	var items = content.getToolbarItems;
-    	
-    	if(content && content.getToolbarItems) {
-    		content.getToolbarItems().forEach(function(item){
-    			me._toolbar.addContent(item);
-    		});
-    	}
-    	
-    	if(content && content.getTitle) {
-    		 this.setTitle(content.getTitle());
-    	}
-    	    	
-    	if(content && content.getSaveButton) {
-    		content.getSaveButton().attachPress(function(){
-    			this.fireSave();
-    		},this);
-    	}
     },
         
     /**
@@ -161,12 +154,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     createToolbar: function() {
     	this.sidetoolBar= new sap.ui.commons.layout.VerticalLayout();
     	this.sidetoolBar.addStyleClass("tutSideToolBar");
-    	this._likeIndicator = new sap.ui.commons.RatingIndicator({
-			maxValue: 1,
-			visualMode: sap.ui.commons.RatingIndicatorVisualMode.Continuous
-		});
-    	this._likeIndicator.addStyleClass("tutLikeIndicator");
-    	this.sidetoolBar.addContent(this._likeIndicator);
     	return this.sidetoolBar;
     }
     

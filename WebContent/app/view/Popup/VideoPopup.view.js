@@ -8,7 +8,14 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
 		return "app.controller.ExternalCandidate";
 	},*/
 	
-
+	
+	/*
+	 * get the Side tool bar items 
+	 * @returns {array}
+	 */
+	getSideBarItems:function() {
+		return [this._likeIndicator];
+	},
 	/**
 	 * Get the current overlay container for this view
 	 * @returns {app.view.BaseControl.BasePopupContainer}
@@ -46,6 +53,12 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
 		this._commentsBox.setRows(3);
 		this._commentsSection.addContent(this._commentsBox);
 
+
+		this._likeIndicator = new sap.ui.commons.RatingIndicator({
+			maxValue: 1,
+			visualMode: sap.ui.commons.RatingIndicatorVisualMode.Continuous
+		});
+    	this._likeIndicator.addStyleClass("tutLikeIndicator");
 		
 		this._viewContentLayout.addContent(this._commentsSection);
 		
