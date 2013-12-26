@@ -41,7 +41,9 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 		this._viewContentLayout = new sap.ui.commons.layout.VerticalLayout();
 		this._viewContentLayout.setWidth("100%");
 		
-		this._personalInfoPanel= new sap.ui.commons.Panel();
+		this._personalInfoPanel= new sap.ui.commons.Panel({
+			width:"550px"
+		});
 		this._personalInfoPanel.setTitle(new sap.ui.core.Title({text: "Enter your personal details here"}));
 		
 		this._personalInfoLayout = new sap.ui.commons.layout.VerticalLayout();
@@ -104,7 +106,9 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 		
 		
 		
-		this._eduInfoPanel= new sap.ui.commons.Panel();
+		this._eduInfoPanel= new sap.ui.commons.Panel({
+			width:"550px"
+		});
 		this._eduInfoPanel.setTitle(new sap.ui.core.Title({text: "Enter your educational details here"}));
 		
 		this._eduInfoLayout = new sap.ui.commons.layout.VerticalLayout();
