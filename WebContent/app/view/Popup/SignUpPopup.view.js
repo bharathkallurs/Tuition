@@ -6,6 +6,14 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 	*/ 
 	
 	/*
+	 * get the controller name 
+	 * @memberOf {app.view.Popup.SignUpPopup}
+	 */
+	getControllerName : function() {
+		return "app.controller.SignUpPopup";
+	},
+	
+	/*
 	 * get the Side tool bar items 
 	 * @returns {array}
 	 */
@@ -170,24 +178,22 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 		this._eduInfoPanel.addContent(this._eduInfoLayout);
 		this._viewContentLayout.addContent(this._eduInfoPanel);
 		
-		//create School name label and field 
-		
-		
-		
-		
 		this._saveButton=new sap.ui.commons.Button({
-	        icon : "resources-project/images/save.png",
+	        icon : "resources-project/images/save_bw.png",
 	        lite:true,
 	        height:"32px"
 	    });
 		this._saveButton.addStyleClass("tutSaveButton");
+		this._saveButton.attachPress(this.oController.onSaveButtonPress,oController);
+		
 		
 		this._redoButton=new sap.ui.commons.Button({
-	        icon : "resources-project/images/redo.png",
+	        icon : "resources-project/images/undo_bw.png",
 	        lite:true,
 	        height:"32px"
 	    });
 		this._redoButton.addStyleClass("tutRedoButton");
+		this._redoButton.attachPress(this.oController.onRedoButtonPress,oController);
 		
 		
 	    return this._viewContentLayout;
