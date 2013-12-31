@@ -167,8 +167,17 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 		this._eduInfoLayout.addContent(this._subsLabel);
 		this._eduInfoLayout.addContent(this._subsScienceCheckBox);
 		this._eduInfoLayout.addContent(this._subsMathCheckBox);
+		this._subsMathCheckBox.addStyleClass("tutBottomMargin");
 		
-		
+		//create the school id lable and field 
+		this._schoolIdLabel= new sap.ui.commons.Label({
+			text:"Enter your unique School ID"
+		});
+		this._schoolIdField =  new sap.ui.commons.TextField({
+			width:"250px"
+		});
+		this._eduInfoLayout.addContent(this._schoolIdLabel);
+		this._eduInfoLayout.addContent(this._schoolIdField);
 		
 		this._personalInfoPanel.addContent(this._personalInfoLayout);
 		this._viewContentLayout.addContent(this._personalInfoPanel);
