@@ -11,7 +11,8 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 	
 		//Create a panel instance
 		this._panel = new sap.ui.commons.Panel({width: "350px"});	
-		
+		this._panel.addStyleClass("tutLoginPanel");
+		this._panel.setShowCollapseIcon(false);
 		
 		//Set the title of the panel , can add icon using icon Json field
 		this._panel.setTitle(new sap.ui.core.Title({text: "Sign In"}));
