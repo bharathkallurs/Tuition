@@ -3,17 +3,25 @@ sap.ui.controller("app.controller.LoginPage", {
     /**
     * Called when a controller is instantiated and its View controls (if available) are already created.
     * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-    * @memberOf app.controller.SignUpPopup
+    * @memberOf app.controller.LoginPage
     */
 	onInit: function() {
 		
     },
     
-
+    /**
+    * Handler for the Sign In button 
+    * @memberOf app.controller.LoginPage
+    */
     onSignInButton:function(){
     	alert("Sign In button pressed");
     },
     
+    /**
+     * Handler for the Sign Up button 
+     * Displays pop up for signing up
+     * @memberOf app.controller.LoginPage
+     */
     onSignUpButton:function(){
 		var view = sap.ui.view({viewName:"app.view.Popup.SignUpPopup", type:sap.ui.core.mvc.ViewType.JS});
 		var sideBaritems= view.getSideBarItems();
@@ -28,7 +36,7 @@ sap.ui.controller("app.controller.LoginPage", {
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 * (NOT before the first rendering! onInit() is used for that one!).
-* @memberOf app.controller.SignUpPopup
+* @memberOf app.controller.LoginPage
 */
 //	onBeforeRendering: function() {
 //
@@ -37,7 +45,7 @@ sap.ui.controller("app.controller.LoginPage", {
 /**
 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
 * This hook is the same one that SAPUI5 controls get after being rendered.
-* @memberOf app.controller.SignUpPopup
+* @memberOf app.controller.LoginPage
 */
 //	onAfterRendering: function() {
 //
@@ -45,7 +53,7 @@ sap.ui.controller("app.controller.LoginPage", {
 
 /**
 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-* @memberOf app.controller.SignUpPopup
+* @memberOf app.controller.LoginPage
 */
 //	onExit: function() {
 //

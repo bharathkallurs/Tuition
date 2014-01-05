@@ -14,33 +14,32 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		
 		
 		//Set the title of the panel , can add icon using icon Json field
-		this._panel.setTitle(new sap.ui.core.Title({text: "SignIn"}));
+		this._panel.setTitle(new sap.ui.core.Title({text: "Sign In"}));
 
 		
 		//Horizontal Layout for userName
-		this._userName = new sap.ui.commons.Label({text:"UserName or Email"});
-		this._userNameLayout = new sap.ui.layout.HorizontalLayout("Layout1", {
+		this._userName = new sap.ui.commons.Label({text:"Username or Email"});
+		this._userNameLayout = new sap.ui.layout.HorizontalLayout({
 			content: [this._userName]
 		});
 		this._userNameTxtField = new sap.ui.commons.TextField("userNameTextField", {value:"",width: '100%'});
-		this._userName.setLabelFor(this._userNameTxtField)
-		// oButton = new sap.ui.commons.Button({text:"Submit", tooltip:"Submit value"});
-
-		this._userNameTxtFieldLayout = new sap.ui.layout.HorizontalLayout("Layout2", {
+		this._userName.setLabelFor(this._userNameTxtField);
+		
+		
+		this._userNameTxtFieldLayout = new sap.ui.layout.HorizontalLayout({
 			content: [this._userNameTxtField]
 		});
 		
 		//Horizontal Layout for password
-		this._password = new sap.ui.commons.Label({text:"Passowrd"});
-		this._passwordLayout = new sap.ui.layout.HorizontalLayout("Layout3", {
+		this._password = new sap.ui.commons.Label({text:"Password"});
+		this._passwordLayout = new sap.ui.layout.HorizontalLayout({
 			content: [this._password]
 		});
-		this._passwordTxtField = new sap.ui.commons.TextField("passwordTxtField", {value:"",width: '100%'});
-		this._userName.setLabelFor(this._passwordTxtField)
-		// oButton = new sap.ui.commons.Button({text:"Submit", tooltip:"Submit value"});
+		this._passwordField = new sap.ui.commons.PasswordField("passwordField", {value:"",width: '100%'});
+		this._userName.setLabelFor(this._passwordField);
 
-		this._passwordTxtFieldLayout = new sap.ui.layout.HorizontalLayout("Layout4", {
-			content: [this._passwordTxtField]
+		this._passwordTxtFieldLayout = new sap.ui.layout.HorizontalLayout({
+			content: [this._passwordField]
 		});
 		
 		//Horizontal Layout for Sign in and Sign up buttons
@@ -51,18 +50,18 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		this._signInButton.attachPress(this.oController.onSignInButton,oController);
 		this._signUpButton.attachPress(this.oController.onSignUpButton,oController);
 		
-		this._buttonLayout = new sap.ui.layout.HorizontalLayout("Layout5",{
+		this._buttonLayout = new sap.ui.layout.HorizontalLayout({
 			content : [this._signInButton,this._signUpButton]
 		});
 		
-		//create a vertical layout consisting of these horizontal layouts
-		this._loginLayout = new sap.ui.layout.VerticalLayout("Layout6", {
+		//create a vertical layout consisting of the above horizontal layouts
+		this._loginLayout = new sap.ui.layout.VerticalLayout({
 			content:[this._userNameLayout,this._userNameTxtFieldLayout,this._passwordLayout,this._passwordTxtFieldLayout,this._buttonLayout]
 		});
 
 		//Add the login layout to the panels content area
 		this._panel.addContent(this._loginLayout);	
 		return this._panel;
-	},		
+	},
 
 });
