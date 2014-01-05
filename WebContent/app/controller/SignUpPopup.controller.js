@@ -1,3 +1,4 @@
+jQuery.sap.require("app.util.Utility");
 sap.ui.controller("app.controller.SignUpPopup", {
 
     /**
@@ -14,7 +15,15 @@ sap.ui.controller("app.controller.SignUpPopup", {
      * @memberOf {app.controller.SignUpPopup}
      */
     onSaveButtonPress:function(){
-    	alert("save button pressed");
+    	var view = this.getView();
+    	var requiredFields= view.getRequiredFields();
+    	if(app.util.Utility.validateFields(requiredFields)){
+    		//TODO call the webservice here
+    		alert("validation passed");
+    	}
+    	else{
+    		app.util.Utility.showMessageBox("Please enter all the required fields","2");
+    	}
     },
     
     /*

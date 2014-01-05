@@ -6,6 +6,15 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 	*/ 
 	
 	/*
+	 * get all the required fields for this view
+	 * @returns {Array} array of required fields 
+	 * @memberOf {app.view.Popup.SignUpPopup}
+	 */
+	getRequiredFields :function(){
+		return [this._firstNameField,this._emailField,this._passwordField,this._confpasswordField,this._schoolNameField,this._classDropDown,this._schoolIdField];
+	},
+	
+	/*
 	 * get the controller name 
 	 * @memberOf {app.view.Popup.SignUpPopup}
 	 */
@@ -143,6 +152,18 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 		this._classDropDown =   new sap.ui.commons.DropdownBox({
 			width:"50px"
 		});
+		
+		
+		this._eightClassItem = new sap.ui.core.ListItem();
+		this._eightClassItem.setText("8");
+		this._classDropDown.addItem(this._eightClassItem);
+		this._nineClassItem = new sap.ui.core.ListItem();
+		this._nineClassItem.setText("9");
+		this._classDropDown.addItem(this._nineClassItem);
+		this._tenClassItem = new sap.ui.core.ListItem();
+		this._tenClassItem.setText("10");
+		this._classDropDown.addItem(this._tenClassItem);
+		
 		this._classDropDown.addStyleClass("tutBottomMargin");
 		this._eduInfoLayout.addContent(this._classNameLabel);
 		this._eduInfoLayout.addContent(this._classDropDown);
@@ -171,7 +192,8 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 		
 		//create the school id lable and field 
 		this._schoolIdLabel= new sap.ui.commons.Label({
-			text:"Enter your unique School ID"
+			text:"Enter your unique School ID",
+			required:true
 		});
 		this._schoolIdField =  new sap.ui.commons.TextField({
 			width:"250px"
