@@ -2,6 +2,10 @@
 jQuery.sap.require("sap.ui.ux3.Shell");
 
 sap.ui.jsview("app.view.LoginPage.LoginPage", {
+	
+	getControllerName : function() {
+		return "app.controller.LoginPage";
+	},
 
 	createContent : function(oController) {
 	
@@ -11,7 +15,6 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		
 		//Set the title of the panel , can add icon using icon Json field
 		this._panel.setTitle(new sap.ui.core.Title({text: "SignIn"}));
-		//As alternative if no icon is desired also the following shortcut might be possible:
 
 		
 		//Horizontal Layout for userName
@@ -44,6 +47,9 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		
 		this._signInButton = new sap.ui.commons.Button({text:"Sign In"});
 		this._signUpButton = new sap.ui.commons.Button({text:"Sign Up"});
+		
+		this._signInButton.attachPress(this.oController.onSignInButton,oController);
+		this._signUpButton.attachPress(this.oController.onSignUpButton,oController);
 		
 		this._buttonLayout = new sap.ui.layout.HorizontalLayout("Layout5",{
 			content : [this._signInButton,this._signUpButton]

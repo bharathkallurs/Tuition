@@ -8,11 +8,11 @@ jQuery.sap.require("sap.ui.app.Application");
 
 sap.ui.app.Application.extend("Application", {
 	main: function(){
-		//var rootContainer = this.getRoot();
-		//var view = sap.ui.view({viewName:"app.view.MainShellView", type:sap.ui.core.mvc.ViewType.JS});
-		//view.placeAt(rootContainer);
+
+		var view = sap.ui.view({viewName:"app.view.LoginPage.LoginPage", type:sap.ui.core.mvc.ViewType.JS});
+		var rootContainer = this.getRoot();
+		view.placeAt(rootContainer);
 		
-		this.runAvitest();
 	},
 	
 	runPavantest: function(){
