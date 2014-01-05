@@ -19,7 +19,7 @@ app.util.Utility = {
 				//if even one of the fields is empty return false 
 				return false;
 		}
-		//if none of the fileds were empty then return true
+		//if none of the fields were empty then return true
 		return true;
 	},
 	
@@ -31,7 +31,7 @@ app.util.Utility = {
 	showMessageBox:function(messageBoxString,imageFlag){
 		
 		if(imageFlag=="1"){
-		sap.ui.commons.MessageBox.show(
+		    sap.ui.commons.MessageBox.show(
 				messageBoxString,
                 sap.ui.commons.MessageBox.Icon.WARNING,
                 "Warning",
@@ -39,10 +39,10 @@ app.util.Utility = {
 		}
 		else{
 			sap.ui.commons.MessageBox.show(
-					messageBoxString,
-	                sap.ui.commons.MessageBox.Icon.ERROR,
-	                "Error",
-	                [sap.ui.commons.MessageBox.Action.OK]);
+			    messageBoxString,
+	            sap.ui.commons.MessageBox.Icon.ERROR,
+	            "Error",
+	            [sap.ui.commons.MessageBox.Action.OK]);
 	    }
 	}
 	
