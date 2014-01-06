@@ -44,6 +44,8 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     	}
 
     	this.setOpenButtonVisible(false);
+    	
+    	
 	    	    
     	this._center = this.createCenter();
     	
@@ -75,15 +77,15 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
     	this._title = this.createTitlebar();
     	this._toolbar = this.createToolbar();
     	
-    	this._content.addStyleClass("tutPopupContent");
     	
     	this._horizontalLayout= new sap.ui.commons.layout.HorizontalLayout({
     		content:[this._toolbar,this._content]
     	});
+    	this._horizontalLayout.addStyleClass("tutBasePopupContainer");
+    	this._content.addStyleClass("tutPopupContent");
+    	this._toolbar.addStyleClass("tutSideToolBar");
     	
     	this.addContent(this._horizontalLayout);
-    	this.addContent(this._toolbar);    	
-    	this.addContent(this._content);
     },
     
     
@@ -154,7 +156,6 @@ sap.ui.ux3.OverlayDialog.extend("app.view.BaseControl.BasePopupContainer", {
      */
     createToolbar: function() {
     	this.sidetoolBar= new sap.ui.commons.layout.VerticalLayout();
-    	this.sidetoolBar.addStyleClass("tutSideToolBar");
     	return this.sidetoolBar;
     }
     

@@ -55,8 +55,10 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 	*/ 
 	createContent : function(oController) {
 		
+		
 		this._viewContentLayout = new sap.ui.commons.layout.VerticalLayout();
 		this._viewContentLayout.setWidth("100%");
+		this._viewContentLayout.addStyleClass("tutSignupPopup");
 		
 		this._personalInfoPanel= new sap.ui.commons.Panel({
 			width:"550px"

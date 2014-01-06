@@ -27,9 +27,10 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
 	createContent : function(oController) {
 		
 		this._viewContentLayout = new sap.ui.commons.layout.VerticalLayout();
+		this._viewContentLayout.addStyleClass("tutvideoPopup");
 		this._viewContentLayout.setWidth("100%");
 		this._videoHtmlPlayer = new sap.ui.core.HTML({
-			 content:"<embed style='position:absolute;top:0px;width:100%;float:right'"+
+			 content:"<embed style='position:absolute;top:0px;width:1230px;float:right'"+
 			 " height='500'"+
 				 "src='http://www.youtube.com/v/XGSy3_Czz8k'"+
 				 "type='application/x-shockwave-flash'>"+
@@ -41,7 +42,9 @@ sap.ui.jsview("app.view.Popup.VideoPopup", {
         });
 		this._viewContentLayout.addContent(this._videoHtmlPlayer);
 		
-		this._commentsSection= new sap.ui.commons.Panel();
+		this._commentsSection= new sap.ui.commons.Panel({
+			width:"1230px"
+		});
 		this._commentsSection.setTitle(new sap.ui.core.Title({text: "Comments"}));
 		this._commentsSection.addStyleClass("tutCommentsSection");
 		

@@ -5,30 +5,75 @@
 $tut-color-gray: #939393;
 
 //-------------------------------------------------------------
-//Side bar for overlay container
+//popup container
 //-------------------------------------------------------------
 
-.tutSideToolBar{
-   position:absolute;
-   top:0px;
-   left:0px;
-   width:50px;
-   height:100%;
-   background: $tut-color-gray;
+.tutBasePopupContainer{
+
+	.tutPopupContent{
+	   position:absolute;
+	   margin-left:50px;
+	   height:100%; 
+    }
+    
+    .tutSideToolBar{
+       position:absolute;
+       top:0px;
+       left:0px;
+       width:50px;
+       height:100%;
+       background: $tut-color-gray;
+    }
 }
 
-.tutPopupContent{
-	position:absolute;
-	margin-left:50px;
-	height:100%;
+//-------------------------------------------------------------
+//video player popup
+//-------------------------------------------------------------
+
+.tutvideoPopup{
+
+    .tutVideoplayer{
+	   position:absolute;
+	   top:0px;
+	   left:50px;
+	   width:100%;
+	   float:right;
+    }
+
+
+    .tutCommentsSection{
+	   margin-top:520px;
+	   left:60px;
+	   width:100%;
+	   float:right;
+    }
 }
 
-.tutVideoplayer{
-	position:absolute;
-	top:0px;
-	left:50px;
-	width:100%;
-	float:right;
+//-------------------------------------------------------------
+//signup popup
+//-------------------------------------------------------------
+
+.tutSignupPopup{
+
+	.tutSignUpViewPanels{
+       margin-left:10px;
+    }
+
+    .tutBottomMargin {
+	   margin-bottom:10px;
+    }	
+}
+
+//-------------------------------------------------------------
+//side bar items 
+//-------------------------------------------------------------
+
+.tutSaveButton {
+	   margin-top:20px;
+}
+
+.tutRedoButton {
+	   margin-top:20px;
 }
 
 .tutLikeIndicator{
@@ -36,29 +81,9 @@ $tut-color-gray: #939393;
 	margin-top:20px;
 }
 
-.tutCommentsSection{
-	margin-top:520px;
-	left:60px;
-	width:100%;
-	float:right;
-}
-
-	
-.tutSaveButton {
-	margin-top:20px;
-}
-
-.tutRedoButton {
-	margin-top:20px;
-}
-   
-.tutSignUpViewPanels{
-    margin-left:10px;
-}
-
-.tutBottomMargin {
-	margin-bottom:10px;
-}	
+//-------------------------------------------------------------
+//login page
+//-------------------------------------------------------------
 
 .tutLoginPanel {
   position: fixed;
