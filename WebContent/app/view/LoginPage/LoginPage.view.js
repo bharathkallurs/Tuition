@@ -9,10 +9,15 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 
 	createContent : function(oController) {
 	
+		//creating base Horizontal layout so that we can add the "drawer" UI later 
+		
+		this._viewContentLayout = new sap.ui.layout.HorizontalLayout();
+		this._viewContentLayout.addStyleClass("tutLoginPage");
+		
 		//Create a panel instance
 		this._panel = new sap.ui.commons.Panel({width: "350px"});	
-		this._panel.addStyleClass("tutLoginPanel");
 		this._panel.setShowCollapseIcon(false);
+		this._panel.addStyleClass("tutLoginPanel");
 		
 		//Set the title of the panel , can add icon using icon Json field
 		this._panel.setTitle(new sap.ui.core.Title({text: "Sign In"}));
@@ -43,6 +48,8 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 			content: [this._passwordField]
 		});
 		
+		this._passwordTxtFieldLayout.addStyleClass("tutBottomMargin");
+		
 		//Horizontal Layout for Sign in and Sign up buttons
 		
 		this._signInButton = new sap.ui.commons.Button({text:"Sign In"});
@@ -50,6 +57,7 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		
 		this._signInButton.attachPress(this.oController.onSignInButton,oController);
 		this._signUpButton.attachPress(this.oController.onSignUpButton,oController);
+		this._signUpButton.addStyleClass("tutButtonHorizontalMargin");
 		
 		this._buttonLayout = new sap.ui.layout.HorizontalLayout({
 			content : [this._signInButton,this._signUpButton]
@@ -61,8 +69,12 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		});
 
 		//Add the login layout to the panels content area
-		this._panel.addContent(this._loginLayout);	
-		return this._panel;
+		this._panel.addContent(this._loginLayout);
+		
+		this._viewContentLayout.addContent(this._panel);
+		
+		
+		return this._viewContentLayout;
 	},
 
 });
