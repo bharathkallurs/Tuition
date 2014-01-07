@@ -35,6 +35,14 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 	getAboutPanel : function() {
 		return this._aboutPanel;
 	},
+	
+	/*
+	 * get the faq panel
+	 * @returns {Panel} the right hand side FAQ panel
+	 */
+	getFaqPanel: function(){
+		return this._faqPanel;
+	},
 
 	createContent : function(oController) {
 	
@@ -124,6 +132,14 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		this._aboutPanel.addStyleClass("tutAboutPanel");
 		
 		
+		//create a panel for the faq section
+		this._faqPanel = new sap.ui.commons.Panel({
+			width: "300px"
+	    });	
+		this._faqPanel.setTitle(new sap.ui.core.Title({text: "Frequently Asked Questions"}));
+		this._faqPanel.addStyleClass("tutFaqPanel");
+		
+		
 		//Add the login layout to the panels content area
 		this._panel.addContent(this._loginLayout);
 		
@@ -131,6 +147,7 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		this._viewContentLayout.addContent(this._aboutButton);
 		this._viewContentLayout.addContent(this._panel);
 		this._viewContentLayout.addContent(this._faqButton);
+		this._viewContentLayout.addContent(this._faqPanel);
 		
 		return this._viewContentLayout;
 	},

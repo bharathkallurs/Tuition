@@ -67,16 +67,23 @@ sap.ui.controller("app.controller.LoginPage", {
     onFaqButton:function() {
     	var view = this.getView();
     	var faqButton= view.getFaqButton();
+    	var faqPanel= view.getFaqPanel();
     	var icon= faqButton.getIcon();
     	if(icon=="resources-project/images/Expand-icon.png"){
     		faqButton.removeStyleClass("tutfaqButton");
     		faqButton.addStyleClass("tutfaqButtonExpanded");
     		faqButton.setIcon("resources-project/images/Collapse-icon.png");
+    		
+    		faqPanel.removeStyleClass("tutFaqPanel");
+    		faqPanel.addStyleClass("tutFaqPanelExpanded");
     	}	
     	else{
     		faqButton.removeStyleClass("tutfaqButtonExpanded");
     		faqButton.addStyleClass("tutfaqButton");
     		faqButton.setIcon("resources-project/images/Expand-icon.png");
+    		
+    		faqPanel.removeStyleClass("tutFaqPanelExpanded");
+    		faqPanel.addStyleClass("tutFaqPanel");
     	}
     },
     
