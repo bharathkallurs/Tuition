@@ -3,6 +3,27 @@ jQuery.sap.require("sap.ui.ux3.Shell");
 
 sap.ui.jsview("app.view.LoginPage.LoginPage", {
 	
+	/*
+	 * get the about Button
+	 * @returns {Button} the about button which was created 
+	 */
+	getAboutButton : function(){
+		return this._aboutButton;
+	},
+	
+	/*
+	 * get FAQ Button
+	 * @returns {Button} the FAQ button which was created
+	 */
+	getFaqButton: function (){
+		return this._faqButton;
+	},
+	
+	/*
+	 * get the controller for this view 
+	 * @returns {String} controller in string format
+	 */
+	
 	getControllerName : function() {
 		return "app.controller.LoginPage";
 	},
@@ -71,17 +92,21 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		//create a button for About 
 		this._aboutButton= new sap.ui.commons.Button({
 	        icon : "resources-project/images/Expand-icon.png",
-	        height:"48px"
+	        height:"48px",
+	        text:"About"
 	    });
 		this._aboutButton.addStyleClass("tutAboutButton");
+		this._aboutButton.attachPress(this.oController.onAboutButton,oController);
 		
 		
 		//create a button for FAQ
 		this._faqButton= new sap.ui.commons.Button({
 	        icon : "resources-project/images/Expand-icon.png",
-	        height:"48px"
+	        height:"48px",
+	        text:"FAQ"
 	    });
 		this._faqButton.addStyleClass("tutfaqButton");
+		this._faqButton.attachPress(this.oController.onFaqButton,oController);
 		
 		
 		//Add the login layout to the panels content area

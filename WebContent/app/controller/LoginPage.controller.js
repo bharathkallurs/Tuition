@@ -33,6 +33,34 @@ sap.ui.controller("app.controller.LoginPage", {
 		overlayContainer.open();	
     },
     
+    /*
+     * Handler for the about Button
+     * @memberOf app.controller.LoginPage
+     */
+    onAboutButton:function() {
+    	var view = this.getView();
+    	var aboutButton= view.getAboutButton();
+    	var icon= aboutButton.getIcon();
+    	if(icon=="resources-project/images/Expand-icon.png")
+    	    aboutButton.setIcon("resources-project/images/Collapse-icon.png");
+    	else
+    		aboutButton.setIcon("resources-project/images/Expand-icon.png");
+    },
+    
+    /*
+     * handler for the FAQ button 
+     * @memberOf app.controller.LoginPage
+     */
+    onFaqButton:function() {
+    	var view = this.getView();
+    	var faqButton= view.getFaqButton();
+    	var icon= faqButton.getIcon();
+    	if(icon=="resources-project/images/Expand-icon.png")
+    		faqButton.setIcon("resources-project/images/Collapse-icon.png");
+    	else
+    		faqButton.setIcon("resources-project/images/Expand-icon.png");
+    },
+    
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 * (NOT before the first rendering! onInit() is used for that one!).
