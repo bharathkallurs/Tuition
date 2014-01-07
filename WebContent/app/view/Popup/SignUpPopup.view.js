@@ -15,6 +15,15 @@ sap.ui.jsview("app.view.Popup.SignUpPopup", {
 	},
 	
 	/*
+	 * get all the fields in this view
+	 * @returns {Array} array of all the fields 
+	 * @memberOf {app.view.Popup.SignUpPopup}
+	 */
+	getAllFields: function() {
+		return [this._firstNameField,this._lastNameField,this._emailField,this._passwordField,this._confpasswordField,this._schoolNameField,this._classDropDown,this._schoolIdField];
+    },
+	
+	/*
 	 * get the controller name 
 	 * @memberOf {app.view.Popup.SignUpPopup}
 	 */

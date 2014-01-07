@@ -31,7 +31,12 @@ sap.ui.controller("app.controller.SignUpPopup", {
      * @memberOf {app.controller.SignUpPopup}
      */
     onRedoButtonPress:function(){
-    	alert("redo button pressed");
+    	var view = this.getView();
+    	var allFields= view.getAllFields();
+    	for(var i=0;i<allFields.length;i++){
+    		var currentField = allFields[i];
+    		currentField.setValue("");
+    	}
     },
     
 /**
