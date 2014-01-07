@@ -68,11 +68,28 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 			content:[this._userNameLayout,this._userNameTxtFieldLayout,this._passwordLayout,this._passwordTxtFieldLayout,this._buttonLayout]
 		});
 
+		//create a button for About 
+		this._aboutButton= new sap.ui.commons.Button({
+	        icon : "resources-project/images/Expand-icon.png",
+	        height:"48px"
+	    });
+		this._aboutButton.addStyleClass("tutAboutButton");
+		
+		
+		//create a button for FAQ
+		this._faqButton= new sap.ui.commons.Button({
+	        icon : "resources-project/images/Expand-icon.png",
+	        height:"48px"
+	    });
+		this._faqButton.addStyleClass("tutfaqButton");
+		
+		
 		//Add the login layout to the panels content area
 		this._panel.addContent(this._loginLayout);
 		
+		this._viewContentLayout.addContent(this._aboutButton);
 		this._viewContentLayout.addContent(this._panel);
-		
+		this._viewContentLayout.addContent(this._faqButton);
 		
 		return this._viewContentLayout;
 	},
