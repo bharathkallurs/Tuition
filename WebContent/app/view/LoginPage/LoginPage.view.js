@@ -27,6 +27,14 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 	getControllerName : function() {
 		return "app.controller.LoginPage";
 	},
+	
+	/*
+	 * get the about panel
+	 * @returns {Panel} the left hand side about panel
+	 */
+	getAboutPanel : function() {
+		return this._aboutPanel;
+	},
 
 	createContent : function(oController) {
 	
@@ -108,10 +116,18 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		this._faqButton.addStyleClass("tutfaqButton");
 		this._faqButton.attachPress(this.oController.onFaqButton,oController);
 		
+		//create a panel for the about section
+		this._aboutPanel = new sap.ui.commons.Panel({
+			width: "300px"
+	    });	
+		this._aboutPanel.setTitle(new sap.ui.core.Title({text: "About"}));
+		this._aboutPanel.addStyleClass("tutAboutPanel");
+		
 		
 		//Add the login layout to the panels content area
 		this._panel.addContent(this._loginLayout);
 		
+		this._viewContentLayout.addContent(this._aboutPanel);
 		this._viewContentLayout.addContent(this._aboutButton);
 		this._viewContentLayout.addContent(this._panel);
 		this._viewContentLayout.addContent(this._faqButton);

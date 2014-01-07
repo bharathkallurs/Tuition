@@ -40,11 +40,24 @@ sap.ui.controller("app.controller.LoginPage", {
     onAboutButton:function() {
     	var view = this.getView();
     	var aboutButton= view.getAboutButton();
+    	var aboutPanel= view.getAboutPanel();
     	var icon= aboutButton.getIcon();
-    	if(icon=="resources-project/images/Expand-icon.png")
+    	if(icon=="resources-project/images/Expand-icon.png"){
+    		aboutButton.removeStyleClass("tutAboutButton");
+    		aboutButton.addStyleClass("tutAboutButtonExpanded");
     	    aboutButton.setIcon("resources-project/images/Collapse-icon.png");
-    	else
+    	    
+    	    aboutPanel.removeStyleClass("tutAboutPanel");
+    	    aboutPanel.addStyleClass("tutAboutPanelExpanded");
+    	}    
+    	else{
+    		aboutButton.removeStyleClass("tutAboutButtonExpanded");
+    		aboutButton.addStyleClass("tutAboutButton");
     		aboutButton.setIcon("resources-project/images/Expand-icon.png");
+    		
+    		aboutPanel.removeStyleClass("tutAboutPanelExpanded");
+    	    aboutPanel.addStyleClass("tutAboutPanel");
+    	}
     },
     
     /*
@@ -55,10 +68,16 @@ sap.ui.controller("app.controller.LoginPage", {
     	var view = this.getView();
     	var faqButton= view.getFaqButton();
     	var icon= faqButton.getIcon();
-    	if(icon=="resources-project/images/Expand-icon.png")
+    	if(icon=="resources-project/images/Expand-icon.png"){
+    		faqButton.removeStyleClass("tutfaqButton");
+    		faqButton.addStyleClass("tutfaqButtonExpanded");
     		faqButton.setIcon("resources-project/images/Collapse-icon.png");
-    	else
+    	}	
+    	else{
+    		faqButton.removeStyleClass("tutfaqButtonExpanded");
+    		faqButton.addStyleClass("tutfaqButton");
     		faqButton.setIcon("resources-project/images/Expand-icon.png");
+    	}
     },
     
 /**
