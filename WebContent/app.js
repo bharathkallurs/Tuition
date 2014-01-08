@@ -12,7 +12,16 @@ sap.ui.app.Application.extend("Application", {
 		var view = sap.ui.view({viewName:"app.view.LoginPage.LoginPage", type:sap.ui.core.mvc.ViewType.JS});
 		var rootContainer = this.getRoot();
 		view.placeAt(rootContainer);
-		
+	},
+	
+	/*
+	 * setting the main shell view once the sigining in is done. there might be a 
+	 * better way of doing this. will have to check 
+	 */
+	setMainShellView:function(){
+		var view = sap.ui.view({viewName:"app.view.MainShellView", type:sap.ui.core.mvc.ViewType.JS});
+		var rootContainer = this.getRoot();
+		view.placeAt(rootContainer,"only");
 	},
 	
 	runPavantest: function(){
@@ -27,9 +36,7 @@ sap.ui.app.Application.extend("Application", {
     },
 	
 	runAvitest: function(){
-		var view = sap.ui.view({viewName:"app.view.LoginPage.LoginPage", type:sap.ui.core.mvc.ViewType.JS});
-		var rootContainer = this.getRoot();
-		view.placeAt(rootContainer);
+		
 		
 	},
 	

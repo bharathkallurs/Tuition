@@ -1,3 +1,5 @@
+jQuery.sap.require("app.view.BaseControl.BasePopupContainer");
+jQuery.sap.require("sap.ui.app.Application");
 sap.ui.controller("app.controller.LoginPage", {
 
     /**
@@ -14,7 +16,9 @@ sap.ui.controller("app.controller.LoginPage", {
     * @memberOf app.controller.LoginPage
     */
     onSignInButton:function(){
-    	alert("Sign In button pressed");
+    	//TODO do this on succcessful authentication !
+    	var app= sap.ui.getApplication();
+		app.setMainShellView();
     },
     
     /**
@@ -25,7 +29,6 @@ sap.ui.controller("app.controller.LoginPage", {
     onSignUpButton:function(){
 		var view = sap.ui.view({viewName:"app.view.Popup.SignUpPopup", type:sap.ui.core.mvc.ViewType.JS});
 		var sideBaritems= view.getSideBarItems();
-		jQuery.sap.require("app.view.BaseControl.BasePopupContainer");
 		var overlayContainer = new app.view.BaseControl.BasePopupContainer({
     		contentView: view
     	});
