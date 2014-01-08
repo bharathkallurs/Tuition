@@ -5,8 +5,165 @@
 $tut-color-gray: #939393;
 
 //-------------------------------------------------------------
+//Animations
+//-------------------------------------------------------------
+
+//Animations for the about panel slide
+@-webkit-keyframes aboutSlide {
+  0%   { 
+         left:-300px;
+         width:300px; 
+       }
+  100% { 
+        left:0px;
+        width:300px;
+       }
+}
+@-moz-keyframes aboutSlide{
+ 0%   { 
+         left:-300px;
+         width:300px; 
+       }
+  100% { 
+        left:0px;
+        width:300px;
+       }
+}
+@-o-keyframes aboutSlide {
+ 0%   { 
+         left:-300px;
+         width:300px; 
+       }
+  100% { 
+        left:0px;
+        width:300px;
+       }
+}
+@keyframes aboutSlide {
+ 0%   { 
+         left:-300px;
+         width:300px; 
+       }
+  100% { 
+        left:0px;
+        width:300px;
+       }
+}
+
+//Animations for the FAQ panel slide
+@-webkit-keyframes faqSlide {
+  0%   { 
+         right:-300px;
+         width:300px; 
+       }
+  100% { 
+        right:0px;
+        width:300px;
+       }
+}
+@-moz-keyframes faqSlide{
+ 0%   { 
+         right:-300px;
+         width:300px; 
+       }
+  100% { 
+        right:0px;
+        width:300px;
+       }
+}
+@-o-keyframes faqSlide {
+ 0%   { 
+         right:-300px;
+         width:300px; 
+       }
+  100% { 
+        right:0px;
+        width:300px;
+       }
+}
+@keyframes faqSlide {
+ 0%   { 
+         right:-300px;
+         width:300px; 
+       }
+  100% { 
+        right:0px;
+        width:300px;
+       }
+}
+
+//Animations for about Button
+@-webkit-keyframes aboutButton {
+  0%   { 
+        left:0px;
+       }
+  100% { 
+        left:300px;
+       }
+}
+@-moz-keyframes aboutButton{
+ 0%   { 
+        left:0px;
+      }
+ 100% { 
+        left:300px;
+      }
+}
+@-o-keyframes aboutButton {
+ 0%   { 
+        left:0px;
+      }
+ 100% { 
+        left:300px;
+      }
+}
+@keyframes aboutButton {
+ 0%   { 
+        left:0px;
+      }
+ 100% { 
+        left:300px;
+      }
+}
+
+//Animations for faq Button
+@-webkit-keyframes faqButton {
+  0%  { 
+        right:0px;
+      }
+ 100% { 
+        right:300px;
+      }
+}
+@-moz-keyframes faqButton{
+ 0%   { 
+        right:0px;
+      }
+ 100% { 
+        right:300px;
+      }
+}
+@-o-keyframes faqButton {
+ 0%   { 
+        right:0px;
+      }
+ 100% { 
+        right:300px;
+      }
+}
+@keyframes faqButton {
+ 0%   { 
+        right:0px;
+      }
+ 100% { 
+        right:300px;
+      }
+}
+
+//-------------------------------------------------------------
 //popup container
 //-------------------------------------------------------------
+
 
 .tutBasePopupContainer{
 
@@ -115,7 +272,11 @@ $tut-color-gray: #939393;
         top:50%;
         left:300px;
         margin-top:-24px;
-        z-index:10
+        z-index:10;
+        -webkit-animation: aboutButton 2s 1; /* Safari 4+ */
+        -moz-animation:    aboutButton 2s 1; /* Fx 5+ */
+        -o-animation:      aboutButton 2s 1; /* Opera 12+ */
+        animation:         aboutButton 2s 1; /* IE 10+ */
     }
     
     
@@ -131,7 +292,11 @@ $tut-color-gray: #939393;
         top:50%;
         right:300px;
         margin-top:-24px;
-        z-index:10
+        z-index:10;
+        -webkit-animation: faqButton 2s 1; /* Safari 4+ */
+        -moz-animation:    faqButton 2s 1; /* Fx 5+ */
+        -o-animation:      faqButton 2s 1; /* Opera 12+ */
+        animation:         faqButton 2s 1; /* IE 10+ */
     }
     
     .tutAboutPanel {
@@ -141,12 +306,15 @@ $tut-color-gray: #939393;
     
     .tutAboutPanelExpanded {
        position:fixed;
-       left:0px;
-       width:300px;
        height:100%;
        border:2px solid;
        box-shadow: 10px 10px 5px #888888;
+       -webkit-animation: aboutSlide 2s 1; /* Safari 4+ */
+       -moz-animation:    aboutSlide 2s 1; /* Fx 5+ */
+       -o-animation:      aboutSlide 2s 1; /* Opera 12+ */
+       animation:         aboutSlide 2s 1; /* IE 10+ */
     }
+    
     
     .tutFaqPanel {
        position:fixed;
@@ -160,5 +328,9 @@ $tut-color-gray: #939393;
        height:100%;
        border:2px solid;
        box-shadow: -10px 10px 5px #888888;
+       -webkit-animation: faqSlide 2s 1; /* Safari 4+ */
+       -moz-animation:    faqSlide 2s 1; /* Fx 5+ */
+       -o-animation:      faqSlide 2s 1; /* Opera 12+ */
+       animation:         faqSlide 2s 1; /* IE 10+ */
     }
 }
