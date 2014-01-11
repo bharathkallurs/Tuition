@@ -12,6 +12,8 @@ sap.ui.app.Application.extend("Application", {
 		var view = sap.ui.view({viewName:"app.view.LoginPage.LoginPage", type:sap.ui.core.mvc.ViewType.JS});
 		var rootContainer = this.getRoot();
 		view.placeAt(rootContainer);
+		
+		this.runPavantest();
 	},
 	
 	/*
@@ -25,7 +27,7 @@ sap.ui.app.Application.extend("Application", {
 	},
 	
 	runPavantest: function(){
-		var view = sap.ui.view({viewName:"app.view.Popup.SignUpPopup", type:sap.ui.core.mvc.ViewType.JS});
+		var view = sap.ui.view({viewName:"app.view.Popup.VideoPopup", type:sap.ui.core.mvc.ViewType.JS});
 		var sideBaritems= view.getSideBarItems();
 		jQuery.sap.require("app.view.BaseControl.BasePopupContainer");
 		var overlayContainer = new app.view.BaseControl.BasePopupContainer({
