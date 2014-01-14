@@ -12,8 +12,6 @@ sap.ui.app.Application.extend("Application", {
 		var view = sap.ui.view({viewName:"app.view.LoginPage.LoginPage", type:sap.ui.core.mvc.ViewType.JS});
 		var rootContainer = this.getRoot();
 		view.placeAt(rootContainer);
-		
-		this.runPavantest();
 	},
 	
 	/*

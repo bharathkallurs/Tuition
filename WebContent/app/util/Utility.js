@@ -44,6 +44,47 @@ app.util.Utility = {
 	            "Error",
 	            [sap.ui.commons.MessageBox.Action.OK]);
 	    }
-	}
+	},
 	
+	/*
+	 * Authentication method 
+	 * @param {sap.ui.Model.Json} the json model which has both the username and password
+	 * @param {success} the sucess callback
+	 * @param {failure} the failure callback
+	 */
+	callAuthentication:function(loginModel,success,failure){
+		var loginData= loginModel.getData();
+		var username= loginData.values.UserName;
+		var password=loginData.values.Password;
+		
+		var onLoadSuccess = function(response) {
+			//Call the success callback if any
+			if(success) {
+				success(response);
+			}
+		};
+		
+		//Load failure callback
+		var onLoadFailure = function(response) {
+		    //Call the failure callback
+			if(failure) {
+				failure(response);
+			}
+		};
+		
+		//TODO give the proper URL and test it out 
+		$.ajax
+		({
+		  type: "GET",
+		  url: "index1.php",
+		  dataType: 'json',
+		  async: false,
+		  username: username,
+		  password: password,
+		  success:onLoadSuccess,
+		  error:onLoadFailure
+		});
+		
+		
+	}
 };

@@ -65,7 +65,10 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		this._userNameLayout = new sap.ui.layout.HorizontalLayout({
 			content: [this._userName]
 		});
-		this._userNameTxtField = new sap.ui.commons.TextField("userNameTextField", {value:"",width: '100%'});
+		this._userNameTxtField = new sap.ui.commons.TextField({
+			value:"{Login>/values/UserName}",
+			width: '100%',
+	    });
 		this._userName.setLabelFor(this._userNameTxtField);
 		
 		
@@ -78,7 +81,10 @@ sap.ui.jsview("app.view.LoginPage.LoginPage", {
 		this._passwordLayout = new sap.ui.layout.HorizontalLayout({
 			content: [this._password]
 		});
-		this._passwordField = new sap.ui.commons.PasswordField("passwordField", {value:"",width: '100%'});
+		this._passwordField = new sap.ui.commons.PasswordField({
+			value:"{Login>/values/Password}",
+			width: '100%'
+	    });
 		this._userName.setLabelFor(this._passwordField);
 
 		this._passwordTxtFieldLayout = new sap.ui.layout.HorizontalLayout({

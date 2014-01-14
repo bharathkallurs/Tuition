@@ -1,5 +1,6 @@
 jQuery.sap.require("app.view.BaseControl.BasePopupContainer");
 jQuery.sap.require("sap.ui.app.Application");
+jQuery.sap.require("app.util.Utility");
 sap.ui.controller("app.controller.LoginPage", {
 
     /**
@@ -8,7 +9,17 @@ sap.ui.controller("app.controller.LoginPage", {
     * @memberOf app.controller.LoginPage
     */
 	onInit: function() {
-		
+		if(!this.getView().getModel("Login")) {
+			var model = new sap.ui.model.json.JSONModel();
+			this.getView().setModel(model,"Login");
+		}
+		var view= this.getView();
+    	var loginModel= view.getModel("Login");
+    	loginModel.setData({
+    		values:{
+    			
+    		}
+    	});
     },
     
     /**
@@ -16,9 +27,20 @@ sap.ui.controller("app.controller.LoginPage", {
     * @memberOf app.controller.LoginPage
     */
     onSignInButton:function(){
-    	//TODO do this on succcessful authentication !
-    	var app= sap.ui.getApplication();
-		app.setMainShellView();
+    	
+    	var view= this.getView();
+    	var loginModel= view.getModel("Login");
+    	app.util.Utility.callAuthentication(
+    			loginModel,
+				function() {
+			    	var app= sap.ui.getApplication();
+					app.setMainShellView();
+				},
+				function(error) {
+					app.util.Utility.showMessageBox("The credentials which you have entered is invalid,Please try again","2");
+				}
+			);  
+    	
     },
     
     /**
