@@ -58,6 +58,7 @@ app.util.Utility = {
 		var password=loginData.values.Password;
 		
 		var onLoadSuccess = function(response) {
+			debugger;
 			//Call the success callback if any
 			if(success) {
 				success(response);
@@ -66,25 +67,52 @@ app.util.Utility = {
 		
 		//Load failure callback
 		var onLoadFailure = function(response) {
+			debugger;
 		    //Call the failure callback
 			if(failure) {
 				failure(response);
 			}
 		};
+		debugger;
+		var csrftoken = this.getCookie('csrftoken');
+		
+		$.ajaxSetup({
+		    beforeSend: function(xhr, settings) {
+		        
+		    		//TODO : Only set crsfttoken if url is same-origin url ) url could be relative or scheme relative or absolute )
+		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+		     
+		    }
+		});
 		
 		//TODO give the proper URL and test it out 
 		$.ajax
 		({
 		  type: "GET",
-		  url: "index1.php",
+		  url: "http://localhost:8000",
 		  dataType: 'json',
 		  async: false,
-		  username: username,
-		  password: password,
 		  success:onLoadSuccess,
 		  error:onLoadFailure
 		});
-		
-		
+	},
+	
+	// using jQuery
+	getCookie:function(name) {
+	    var cookieValue = null;
+	    if (document.cookie && document.cookie != '') {
+	        var cookies = document.cookie.split(';');
+	        for (var i = 0; i < cookies.length; i++) {
+	            var cookie = jQuery.trim(cookies[i]);
+	            // Does this cookie string begin with the name we want?
+	            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
 	}
+	//
 };
