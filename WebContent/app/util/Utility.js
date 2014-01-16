@@ -73,17 +73,14 @@ app.util.Utility = {
 				failure(response);
 			}
 		};
-		debugger;
-		var csrftoken = this.getCookie('csrftoken');
+		var csrftoken = this._getCookie('csrftoken');
 		
 		$.ajaxSetup({
 		    beforeSend: function(xhr, settings) {
-		        
-		    		//TODO : Only set crsfttoken if url is same-origin url ) url could be relative or scheme relative or absolute )
-		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-		            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-		     
-		    }
+		       //TODO : Only set crsfttoken if url is same-origin url ) url could be relative or scheme relative or absolute )
+		       xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		       xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+		   }
 		});
 		
 		//TODO give the proper URL and test it out 
@@ -98,8 +95,11 @@ app.util.Utility = {
 		});
 	},
 	
-	// using jQuery
-	getCookie:function(name) {
+	/*
+	 * generates the cookie required 
+	 * @param {String} 
+	 */
+	_getCookie:function(name) {
 	    var cookieValue = null;
 	    if (document.cookie && document.cookie != '') {
 	        var cookies = document.cookie.split(';');
@@ -114,5 +114,4 @@ app.util.Utility = {
 	    }
 	    return cookieValue;
 	}
-	//
 };
