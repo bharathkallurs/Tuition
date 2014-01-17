@@ -11,9 +11,17 @@ sap.ui.jsview("app.view.MainShellView", {
 	* In the case that it is not implemented, or that "null" is returned, this View does not have a Controller.
 	* @memberOf app.view.MainShellView
 	*/ 
-	/*getControllerName : function() {
+	getControllerName : function() {
 		return "app.controller.MainShellView";
-	},*/
+	},
+	
+	/**
+	 * @returns {sap.ui.ux3.NavigationItem}
+	 */
+	getNavigationNotesItem:function(){
+		return this._navigationNotesItem;
+	},
+	
 	/**
 	 * 
 	 * @returns {sap.ui.ux3.Shell}
@@ -30,7 +38,7 @@ sap.ui.jsview("app.view.MainShellView", {
 	* @memberOf app.view.MainShellView
 	*/ 
 	createContent : function(oController) {
-		 // create the top navigation bar
+		// create the top navigation bar
 		this._oController = oController;
 		this._appShell = new sap.ui.ux3.Shell({
             id: "mainshell",
@@ -42,19 +50,17 @@ sap.ui.jsview("app.view.MainShellView", {
             showFeederTool: false,
             showPane: true,
             showTools: true,
-            //worksetItemSelected: [oController.setItemSelected,oController]
+            worksetItemSelected: [oController.setItemSelected,oController]
         });
-        this._navigationRequestItem = 
-            new sap.ui.ux3.NavigationItem("item1", {
-                key:"item1",
-                text:"Item 1"
+        this._navigationNotesItem = 
+            new sap.ui.ux3.NavigationItem("NotesItem", {
+                key:"Notes",
+                text:"Notes"
             });
-       this._appShell.addWorksetItem(this._navigationRequestItem);
-        
-		
-		
-        
-        return this._appShell;
+       this._appShell.addWorksetItem(this._navigationTeamItem);
+       oController.onBeforeInit();
+
+       return this._appShell;
 	},
 	
 

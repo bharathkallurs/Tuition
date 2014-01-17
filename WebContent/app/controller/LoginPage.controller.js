@@ -30,7 +30,7 @@ sap.ui.controller("app.controller.LoginPage", {
     	
     	var view= this.getView();
     	var loginModel= view.getModel("Login");
-    	app.util.Utility.callAuthentication(
+    	/*app.util.Utility.callAuthentication(
     			loginModel,
 				function() {
 			    	var app= sap.ui.getApplication();
@@ -39,7 +39,9 @@ sap.ui.controller("app.controller.LoginPage", {
 				function(error) {
 					app.util.Utility.showMessageBox("The credentials which you have entered is invalid,Please try again","2");
 				}
-			);  
+			); */
+    	var app= sap.ui.getApplication();
+		app.setMainShellView();
     	
     },
     
