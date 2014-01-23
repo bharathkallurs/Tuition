@@ -20,15 +20,6 @@ sap.ui.jsview("app.view.NotesList", {
 	createContent : function(oController) {
 		this._viewContentLayout = new sap.ui.commons.layout.VerticalLayout();
 		this._viewContentLayout.setWidth("100%");
-		
-		//TODO to test the view
-		this._faqButton= new sap.ui.commons.Button({
-	        icon : "resources-project/images/Expand-icon.png",
-	        height:"48px",
-	        text:"FAQ"
-	    });
-		this._viewContentLayout.addContent(this._faqButton);
-		
 		return this._viewContentLayout;
 	},
 

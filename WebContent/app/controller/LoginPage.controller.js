@@ -30,6 +30,7 @@ sap.ui.controller("app.controller.LoginPage", {
     	
     	var view= this.getView();
     	var loginModel= view.getModel("Login");
+    	//TODO: uncomment autheticationc all when the webservice is accesible all the time
     	/*app.util.Utility.callAuthentication(
     			loginModel,
 				function() {

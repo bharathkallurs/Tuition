@@ -9,7 +9,6 @@ sap.ui.controller("app.controller.MainShellView", {
 	* @memberOf app.view.MainShellView
 	*/
 	onBeforeInit:function(){
-		debugger;
 		var view = this.getView();
 		var shell = view.getShell();
 		var navigationNotesItem = view.getNavigationNotesItem();
@@ -34,7 +33,6 @@ sap.ui.controller("app.controller.MainShellView", {
 	 * @param oEvent
 	 */
 	setItemSelected: function(oEvent){
-		debugger;
 	    var sId = oEvent.getParameter("id");
         var oShell = oEvent.oSource;
      
