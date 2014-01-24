@@ -355,6 +355,7 @@ $tut-color-gray: #939393;
 	position: relative;
 	border: 1px solid #DDDDDD;
 	padding: 5px;
+	background:white;
 }
 
 .CustomItemLayoutTitle {
@@ -366,8 +367,16 @@ $tut-color-gray: #939393;
 	display: inline-block;
 }
 
+.sapUiUx3DS {
+	background: transparent;
+}
+
+.sapUiUx3DSToolbar{
+	background:none;
+}
+
 .sapUiUx3DSSVFloating > .sapUiUx3DSSVItem > .CustomItemLayout {
-	width: 200px;
+	width: 250px;
 }
 
 /*Small*/

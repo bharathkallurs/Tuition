@@ -48,16 +48,8 @@ sap.ui.jsview("app.view.NotesList", {
 	                        template: this.createTemplate()
 	                })
 	        ],
-	        search: function search(oEvent) {
-	                var sQuery = oEvent.getParameter("query");
-	                var oBinding = this._notesDataSet.getBinding("items");
-	                oBinding.filter(!sQuery ? [] : [new sap.ui.model.Filter("title", sap.ui.model.FilterOperator.Contains, sQuery)]);
-	                this._notesDataSet.setLeadSelection(-1);
-	        },
-	        selectionChanged: function search(oEvent) {
-	                var idx = oEvent.getParameter("newLeadSelectedIndex");
-	                alert("Product '"+this._notesDataSet.getItems()[idx].getTitle()+"' selected.'");
-	        }
+	        search:this.oController.notesDataSetSearch,
+	        selectionChanged:this.oController.notesDataSetComponentClick
 	    });
 		this._viewContentLayout.addContent(this._notesDataSet);
 		return this._viewContentLayout;
@@ -75,16 +67,37 @@ sap.ui.jsview("app.view.NotesList", {
 					new c.form.FormContainer({
 						formElements: [
 							new c.form.FormElement({
-								label: new c.Label({text: "subTitle_1", layoutData: new c.form.GridElementData({hCells: "5"})}),
-								fields: [new c.TextField({value: "{subTitle_1}", editable: false})]
+								label: new c.Label({
+									text: "subTitle_1:", 
+									layoutData: new c.form.GridElementData({hCells: "6"})
+								}),
+								fields: [new c.TextField({
+									value: "{subTitle_1}", 
+									editable: false
+									})
+								]
 							}),
 							new c.form.FormElement({
-								label: new c.Label({text: "subTitle_2", layoutData: new c.form.GridElementData({hCells: "5"})}),
-								fields: [new c.TextField({value: "{subTitle_2}", editable: false})]
+								label: new c.Label({
+									text: "subTitle_2:",
+                                    layoutData: new c.form.GridElementData({hCells: "6"})
+								}),
+								fields: [new c.TextField({
+									value: "{subTitle_2}", 
+									editable: false
+									})
+								]
 							}),
 							new c.form.FormElement({
-								label: new c.Label({text: "subTitle_3", layoutData: new c.form.GridElementData({hCells: "5"})}),
-								fields:[new c.TextField({value: "{subTitle_3}", editable: false})]
+								label: new c.Label({
+									text: "subTitle_3:", 
+									layoutData: new c.form.GridElementData({hCells: "6"})
+								}),
+								fields:[new c.TextField({
+									value: "{subTitle_3}", 
+									editable: false
+									})
+								]
 							})
 						]
 					})

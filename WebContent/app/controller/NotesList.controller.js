@@ -29,6 +29,25 @@ sap.ui.controller("app.controller.NotesList", {
     	notesDataSet.setModel(notesModel);
     },
     
+    /*
+     * search function of the dataset component
+     * @param {Event} the event passed by the component itself
+     */
+    notesDataSetSearch:function(oEvent){
+    	var sQuery = oEvent.getParameter("query");
+        var oBinding =this.getBinding("items");
+        oBinding.filter(!sQuery ? [] : [new sap.ui.model.Filter("title", sap.ui.model.FilterOperator.Contains, sQuery)]);
+        this.setLeadSelection(-1);
+    },
+    
+    /*
+     * click handler for the dataSetitem component
+     * @param {Event} the event passed by the component itself
+     */
+    notesDataSetComponentClick:function(oEvent){
+    	var idx = oEvent.getParameter("newLeadSelectedIndex");
+        alert("Product '"+this.getItems()[idx].getTitle()+"' selected.'");
+    },
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 * (NOT before the first rendering! onInit() is used for that one!).
